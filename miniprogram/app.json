@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/getOpenId/index",
+    "pages/getMiniProgramCode/index",
+    "pages/uploadFile/index",
+
+    "pages/cart/cart",
+    "pages/mine/mine",
+    "pages/order/order",
+    "pages/confirmOrder/confirmOrder",
+    "pages/stock/stock",
+    "pages/merchandiseDetail/merchandiseDetail",
+    "pages/userLogin/userLogin",
+    "pages/userInfo/userInfo",
+    "pages/uploadMerchandiseInfo/uploadMerchandiseInfo",
+    "pages/subordinateOrder/subordinateOrder",
+    "pages/invitationCode/invitationCode",
+    "pages/manageSubordinate/manageSubordinate",
+    "pages/userSignUp/userSignUp",
+    "pages/manageMerchandise/manageMerchandise",
+    "pages/accountLogIn/accountLogIn",
+    "pages/manageStrategy/manageStrategy",
+    "pages/uploadStrategyInfo/uploadStrategyInfo",
+    "pages/userInfoChange/userInfoChange",
+    "pages/orderDetail/orderDetail",
+    "pages/search/search",
+    "pages/manageShippingAddress/manageShippingAddress",
+    "pages/uploadShippingAddress/uploadShippingAddress",
+    "pages/uploadDeliveryInfo/uploadDeliveryInfo"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "分销",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#E4393C",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/icon1.png",
+        "selectedIconPath": "img/icon1-live.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "img/content.png",
+        "selectedIconPath": "img/nav.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "img/icon2.png",
+        "selectedIconPath": "img/icon2-live.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

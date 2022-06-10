@@ -1,0 +1,10 @@
+<scroll-view class="container" style="height: 100%;">
+    <view class="search-header">
+        <view class="input-box">
+            <image class="icon-search" src="/img/search.png"></image>
+            <input name="input" class="keyword" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="搜索关键词" />
+            <image src="/img/search_dele.png" class="del" wx:if="{{keyword}}" bindtap="clearKeyword"></image>
+        </view>
+        <view class="right" bindtap="closeSearch">取消</view>
+    </view>
+</scroll-view>

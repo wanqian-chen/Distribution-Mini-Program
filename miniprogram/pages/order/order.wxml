@@ -1,0 +1,68 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="navbar">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+
+  <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" style="height: 500px;">
+    <swiper-item wx:for="{{navbarTitle}}" wx:key="index" wx:for-index="status">
+      <!-- <scroll-view scroll-y="{{true}}">
+        {{item}}
+      </scroll-view> -->
+      <scroll-view scroll-y="{{true}}" style="height: 100%;">
+        <view class="wrap">
+          <view wx:for="{{all_orders_info[status]}}" wx:for-item="orders" class='order-list-wrap'>
+            <view class='list-top-wrap'>
+              <view class='time'>
+              <text>订单号：{{orders.id}}\n订单创建时间：{{orders.create_time}}</text>
+              </view>
+              <!-- <view class='status'>
+                <view class="pay-status" wx:if="{{item.offline_pay}}">线下支付订单</view>
+                <view class="order-status">{{item.order_status_text}}</view>
+              </view> -->
+            </view>
+            <view class="goods-list">
+              <view class="a-goods">
+                <view class="img-box">
+                  <view class='image-wrap' wx:for="{{orders.order}}" wx:for-item="mer" wx:key="id" wx:if="{{index<4}}">
+                    <image src="{{mer.img[0]}}" class="goods-image" />
+                  </view>
+                </view>
+                <view class='goods-sum'>
+                  <view class="text">共{{orders.total_number}}件</view>
+                  <view class="arrow"></view>
+                </view>
+              </view>
+            </view>
+            <view class='order-price-wrap'>
+              <view class='order-price'>
+                <view class='price-label'>总价：¥</view>
+                <view class='price-sum'>{{orders.price}}</view>
+              </view>
+              <!-- <view class='trans'>(含运费 ¥{{item.freight_price}})</view> -->
+            </view>
+            <view class="order-edit">
+              <!-- <detail bind:delivery="uploadDeliveryInfo" style="display: none;"/> -->
+              <view catchtap="orderDetail" class="dele-btn" data-oid="{{orders.id}}">查看详情</view>
+              <view wx:if="{{identity == 1 & status == 0}}" catchtap='uploadDeliveryInfo' class="edit-btn" data-oid="{{orders.id}}">上传物流信息</view>
+              <view wx:if="{{identity == 1 & status == 0}}" catchtap='confirmSend' class="edit-btn" data-oid="{{orders.id}}">确认发货</view>
+              <view wx:if="{{identity == 2 & status == 0}}" catchtap='cancelOrder' class="edit-btn" data-oid="{{orders.id}}">取消订单</view>
+              <view wx:if="{{identity == 2 & status == 2}}" catchtap='confirmDelivery' class="edit-btn" data-oid="{{orders.id}}">确认收货</view>
+            </view>
+
+
+            <!-- <button wx:if="{{identity == 1 & status == 0}}" bindtap="confirmOrder" data-oid="{{orders.id}}">确认订单</button> -->
+
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+
+</view>

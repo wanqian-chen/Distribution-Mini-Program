@@ -1,0 +1,51 @@
+<!--pages/uploadShippingAddress/uploadShippingAddress.wxml-->
+<view class="container">
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="icon">
+                <image class="img" src="/img/receiver.png"></image>
+            </view>
+            <view class="input-wrap">
+                <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input>
+            </view>
+        </view>
+        <view class="a-item">
+            <view class="icon">
+                <image class="img" src="/img/mobile.png"></image>
+            </view>
+            <view class="input-wrap">
+                <input cursor-spacing='100' class='a-input' type='number' bindblur="setPhone" value="{{phone}}" placeholder='手机号码'></input>
+            </view>
+        </view>
+        <!-- <view class="a-item">
+            <view class="icon">
+                <image class="img" src="/img/position.png"></image>
+            </view>
+            <view class="input-wrap" bindtap="chooseRegion">
+                <input cursor-spacing='100' class="a-input" value="{{address.full_region}}" disabled="true" placeholder="选择省份、城市、区县" />
+                <view class="arrow"></view>
+            </view>
+        </view> -->
+        <view class="a-item">
+            <view class="icon">
+                <image class="img" src="/img/address.png"></image>
+            </view>
+            <view class="input-wrap">
+                <input cursor-spacing='100' class="a-input" bindinput="setAddress" value="{{address}}" placeholder="收货地址" />
+            </view>
+        </view>
+        <!-- <view class="a-item">
+            <view class="default-input {{address.is_default == 1 ? 'checked' : 'unchecked'}}" bindtap="bindIsDefault" >点击设为默认地址</view>
+        </view> -->
+    </view>
+    <view class="default-wrap">
+        <view class="text">设为默认信息</view>
+        <switch class="switch" checked="{{is_default}}" bindchange="switchDefault"></switch>
+    </view>
+    <view class='btn-wrap' bindtap="confirmInfo">
+        <view class="btn active">保存</view>
+    </view>
+    <view class='delete-wrap' wx:if="{{addressId > 0}}" bindtap='deleteAddress'>
+        <view class='btn'>删除</view>
+    </view>
+</view>

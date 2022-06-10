@@ -1,0 +1,3 @@
+<!--pages/userLogin/userLogin.wxml-->
+<button bindtap="userLogin">log in</button>
+<button bindtap="userLogout">log out</button>

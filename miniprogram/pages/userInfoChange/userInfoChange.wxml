@@ -1,0 +1,16 @@
+<!--pages/userInfoChange/userInfoChange.wxml-->
+<view class="inputform">
+  <input type="text" placeholder="请输入昵称" value="{{user_nickName}}" bindinput="setUserNickName"></input>
+  <input type="text" placeholder="请输入密码" value="{{user_password}}" bindinput="setUserPassword"></input>
+</view>
+
+<text>\n\n请选择头像：</text>
+<button bindtap="chooseAvatar">上传照片</button>
+<!-- <view class='pic' wx:for="{{avatar}}" wx:for-item="photo" wx:key="*this"> -->
+<image class='weui-uploader__img '
+        src="{{avatar}}" mode="aspectFill" bindtap="previewAvatar"></image>
+        <!-- data-index="{{index}}"  -->
+          <!-- <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon> -->
+<button bindtap="deleteAvatar">delete</button>
+<!-- </view> -->
+<button bindtap="submitInfo">提交</button>

@@ -1,0 +1,76 @@
+<!--pages/uploadDeliveryInfo/uploadDeliveryInfo.wxml-->
+<import src="../../components/we-cropper/we-cropper.wxml"/>
+	
+<view class="cropper-wrapper">
+    <template is="we-cropper" wx:if="{{is_img}}" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="upload edit-btn"
+                bindtap="uploadTap" wx:if="{{!is_img}}">
+            上传图片
+        </view>
+        <view
+                class="upload edit-btn"
+                bindtap="uploadTap" wx:else>
+            重新上传图片
+        </view>
+        <view
+                class="getCropperImage edit-btn"
+                bindtap="getCropperImage" wx:if="{{is_img}}">
+            确定范围并识别文字
+        </view>
+    </view>
+</view>
+
+
+<view class="container">
+    <!-- <block wx:for="{{img_text}}" wx:for-item="item" wx:for-index="index">
+        <text>\n{{item.text}}</text>
+        <button bindtap="chooseText" data-id="{{index}}">选择</button>
+    </block> -->
+
+    <view class='edit-container' wx:if="{{img_text.length > 0}}">
+        <view class="a-item">
+            <view class="strategy">识别结果</view>
+            <view class="gray">（上下滑动获取更多）</view>
+        </view>
+        <scroll-view scroll-y class="scroll-view">
+            <!-- <text>\n{{item.text}}</text>
+            <button bindtap="chooseText" data-id="{{index}}">选择</button> -->
+            <!-- <view wx:for="{{img_text}}" wx:for-item="item" wx:for-index="index"> -->
+            <view class="userinfo" wx:for="{{img_text}}" wx:for-item="item" wx:for-index="index">
+                <view class='head-wrap'>
+                    <view class="head-l">
+                    <!-- <view class='l'>
+                        <image class='avatar' src="{{item.avatar}}"></image>
+                    </view> -->
+                    <view class='r'>
+                        <view class='t'>
+                        <view class='name'>{{item.text}}</view>
+                        </view>
+                    </view>
+                    </view>
+                    <view class="head-r">
+                        <view class="choose" bindtap="chooseText" data-id="{{index}}">选择</view>
+                    </view>
+                </view>
+            </view>
+            <!-- </view> -->
+        </scroll-view>
+
+
+    </view>
+
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="note">物流单号</view>
+            <view class="input-wrap">
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请输入物流单号" value="{{delivery_id}}" bindinput="setDeliveryId"></textarea>
+            </view>
+        </view>
+    </view>
+    <!-- <button bindtap="comfirmDelivery">确认上传物流单号</button> -->
+    <view class='btn-wrap' bindtap="comfirmDelivery">
+        <view class="btn active">确认上传物流单号</view>
+    </view>
+</view>

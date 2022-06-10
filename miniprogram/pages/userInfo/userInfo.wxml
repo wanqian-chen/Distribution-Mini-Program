@@ -1,0 +1,6 @@
+<!--pages/userInfo/userInfo.wxml-->
+<text>昵称：{{user_info.nick_name}}</text>
+<text>id：{{user_info.uid}}</text>
+<text>邀请码：{{user_info.invitation_code}}</text>
+<image class="goodspic" src="{{user_info.avatarUrl}}"></image>
+<button bindtap="changeInfo">修改</button>

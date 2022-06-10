@@ -1,0 +1,37 @@
+<!--pages/uploadStrategy/uploadStrategy.wxml-->
+<!-- <view>
+  <text>上传销售策略信息:</text>
+  <view class="inputform">
+    <text>\n名称：</text>
+    <textarea type="text" placeholder="请输入销售策略名称" value="{{strategy_name}}" style="height: 60px;" bindinput="setStrategyName"></textarea>
+    <text>\n策略：</text>
+    <textarea type="text" placeholder="请以数量:折扣的格式输入策略，用,间隔。（符号为半角）" value="{{strategy_detail}}" style="height: 60px;" bindinput="setStrategyDetail"></textarea>
+  </view>
+</view> -->
+
+<view class="container">
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="note">名称</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请输入销售策略名称" value="{{strategy_name}}" bindinput="setStrategyName"></textarea>
+            </view>
+        </view>
+        <view class="a-item">
+            <view class="note">策略</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请以数量:折扣的格式输入策略，用,间隔。（符号为半角）" value="{{strategy_detail}}" bindinput="setStrategyDetail"></textarea>
+            </view>
+        </view>
+    </view>
+    <view class='btn-wrap' bindtap="confirmInfo">
+        <view class="btn active">保存</view>
+    </view>
+    <view class='delete-wrap' wx:if="{{addressId > 0}}" bindtap='deleteAddress'>
+        <view class='btn'>删除</view>
+    </view>
+</view>
+
+<!-- <button bindtap="confirmInfo">set</button> -->

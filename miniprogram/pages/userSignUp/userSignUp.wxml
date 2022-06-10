@@ -1,0 +1,68 @@
+<!--pages/userSignUp/userSignUp.wxml-->
+
+<view class="container">
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="note">昵称</view>
+            <view class="input-wrap">
+                <input cursor-spacing='100' class='a-input' type="text" placeholder="请输入昵称" value="{{user_nickName}}" bindinput="setUserNickName"></input>
+            </view>
+        </view>
+
+        <view class="a-item" wx:if="{{isChange == false}}">
+            <view class="note">密码</view>
+            <view class="input-wrap">
+                <input cursor-spacing='100' class='a-input' password="{{!open}}" type="text" placeholder="请输入密码" value="{{user_password}}" bindinput="setUserPassword"></input>
+            </view>
+        </view>
+        <view class="nota-item" wx:if="{{isChange == false}}" bindtap="switchOpen">
+            <view class="eye" wx:if="{{!open}}">不显示密码</view>
+            <view class="eye" wx:else>显示密码</view>
+        </view>
+
+    </view>
+
+    <view class="edit-container">
+      <view class="a-item">
+          <view class="strategy">设置头像</view>
+          <view class="gray">（点击已上传图片，可显示大图）</view>
+      </view>
+      <view class="upload-img">
+        <view class='pic' wx:if="{{avatar}}">
+          <image class='weui-uploader__img '
+                  src="{{avatar}}"
+                  mode="aspectFill" bindtap="previewAvatar">
+                  <icon type='cancel' class="deleteimgbtn" data-index="{{index}}" catchtap="deleteAvatar"></icon>
+          </image>
+        </view>
+        <view class="upload-img-btn" bindtap="chooseAvatar" wx:else="">+<view class="iconfont icon-jiahao1 iconadd"></view></view>
+      </view>
+
+    </view>
+
+    <view class='btn-wrap' wx:if="{{isChange == false}}" bindtap="submitInfo">
+        <view class="btn active">提交</view>
+    </view>
+    <view class='btn-wrap' wx:else bindtap="modifyInfo">
+      <view class="btn active">修改</view>
+    </view>
+
+</view>
+
+<!-- <view class="inputform">
+  <text>请输入昵称：</text>
+  <input type="text" placeholder="请输入昵称" value="{{user_nickName}}" bindinput="setUserNickName"></input>
+  <input wx:if="{{isChange == false}}" type="text" placeholder="请输入密码" value="{{user_password}}" bindinput="setUserPassword"></input>
+</view> -->
+
+
+<!-- <text>\n\n请选择头像：</text>
+<button bindtap="chooseAvatar">上传照片</button>
+
+<image class='weui-uploader__img '
+        src="{{avatar}}" mode="aspectFill" bindtap="previewAvatar"></image>
+    
+<button bindtap="deleteAvatar">delete</button>
+
+<button wx:if="{{isChange == false}}" bindtap="submitInfo">提交</button>
+<button wx:if="{{isChange == true}}" bindtap="modifyInfo">修改</button> -->

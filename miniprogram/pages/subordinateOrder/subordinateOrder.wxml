@@ -1,0 +1,28 @@
+<!--pages/subordinateOrder/subordinateOrder.wxml-->
+
+<!-- <text>{{all_sub_merchandise}}</text>
+<block wx:for="{{all_sub_merchandise}}" wx:for-item="item">
+  <text>aa</text>
+  <text>{{item}}</text>
+</block>
+<button bindtap="test">test</button> -->
+
+<view id="mer">
+    <block wx:for="{{sub_mer_info}}" wx:for-item="item">
+        <text>{{item[0]}}</text>
+        <view wx:if="{{item.number>0}}" class="row">
+            <image class="goodspic" src="{{item.img[0]}}" bindtap="detail" data-id="{{item.id}}"></image>
+            <view class="mytext">
+                <text class="mertitle" bindtap="detail" data-id="{{item.id}}">{{item.title}}</text>
+                <view class="merstate" hover-class="buttonhover">
+                    <!-- <text bindtap="minmer" data-id="{{item.id}}" data-price="{{item.price}}" class="merbtn">-</text> -->
+                    <text class="mernum"> 下级共购买：{{item.number}} </text>
+                    <!-- <text bindtap="addmer" data-id="{{item.id}}" data-price="{{item.price}}" class="merbtn">+</text> -->
+                </view>
+            </view>
+        </view>
+        <view>
+            <text>折后价{{item.total_price}}</text>
+        </view>
+    </block>
+</view>

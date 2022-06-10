@@ -1,0 +1,111 @@
+<!--pages/uploadMerchandiseInfo/uploadMerchandiseInfo.wxml-->
+<view class="container">
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="note">标题</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请输入Title" value="{{merchandise_title}}" bindinput="setMerchandiseTitle"></textarea>
+            </view>
+        </view>
+
+        <view class="a-item">
+            <view class="note">副标题</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请输入TitleTwo" value="{{merchandise_titleTwo}}" bindinput="setMerchandiseTitleTwo"></textarea>
+            </view>
+        </view>
+
+        <view class="a-item">
+            <view class="note">价格</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="number" placeholder="请输入price" value="{{merchandise_price}}" bindinput="setMerchandisePrice"></textarea>
+            </view>
+        </view>
+
+        <view class="a-item">
+            <view class="note">详细介绍</view>
+            <view class="input-wrap">
+                <!-- <input cursor-spacing='100' class='a-input' bindinput="setName" placeholder='姓名' value="{{name}}"></input> -->
+                <textarea cursor-spacing='100' class='a-input' type="text" placeholder="请输入detail" value="{{merchandise_detail}}" bindinput="setMerchandiseDetail"></textarea>
+            </view>
+        </view>
+    </view>
+
+    <view class='edit-container'>
+        <view class="a-item">
+            <view class="strategy">销售策略</view>
+            <view class="gray">（上下滑动获取更多）</view>
+        </view>
+        <scroll-view scroll-y class="scroll-view">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{all_strategy}}">
+                <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+        </scroll-view>
+    </view>
+
+    <view class="edit-container">
+      <view class="a-item">
+          <view class="strategy">商品图片</view>
+          <view class="gray">（点击已上传图片，可显示大图）</view>
+      </view>
+      <view class="upload-img">
+        <view class='pic' wx:for="{{imgs}}" wx:for-item="photo" wx:key="*this">
+          <image class='weui-uploader__img '
+                  src="{{photo}}"
+                  data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+                  <icon type='cancel' class="deleteimgbtn" data-index="{{index}}" catchtap="deleteImg"></icon>
+          </image>
+        </view>
+        <view class="upload-img-btn" bindtap="chooseImg">+<view class="iconfont icon-jiahao1 iconadd"></view></view>
+      </view>
+
+    </view>
+
+    <view class='btn-wrap' bindtap="confirmInfo">
+        <view class="btn active">保存</view>
+    </view>
+    <view class='delete-wrap' wx:if="{{addressId > 0}}" bindtap='deleteAddress'>
+        <view class='btn'>删除</view>
+    </view>
+</view>
+
+
+<!-- <view>
+  <text>上传商品信息:</text>
+  <view class="inputform">
+    <text>\n标题：</text>
+    <textarea type="text" placeholder="请输入Title" value="{{merchandise_title}}" style="height: 60px;" bindinput="setMerchandiseTitle"></textarea>
+    <text>\n副标题：</text>
+    <textarea type="text" placeholder="请输入TitleTwo" value="{{merchandise_titleTwo}}" style="height: 60px;" bindinput="setMerchandiseTitleTwo"></textarea>
+    <text>\n价格：</text>
+    <textarea type="number" placeholder="请输入price" value="{{merchandise_price}}" style="height: 20px;" bindinput="setMerchandisePrice"></textarea>
+    <text>\n详细介绍：</text>
+    <textarea type="text" placeholder="请输入detail" value="{{merchandise_detail}}" style="height: 100px;" bindinput="setMerchandiseDetail"></textarea>
+  </view>
+  <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{all_strategy}}">
+          <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+      </label>
+  </radio-group>
+  <view>
+    <button bindtap="chooseImg">上传照片</button>
+  </view>
+
+  <view>
+    <view class='pic' wx:for="{{imgs}}" wx:for-item="photo" wx:key="*this">
+        <image class='weui-uploader__img '
+                src="{{photo}}"
+                data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+                  <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+        </image>
+        <button bindtap="deleteImg" data-index="{{index}}">delete</button>
+    </view>
+  </view>
+</view>
+<text>\n\n\n\n\n</text>
+<button bindtap="confirmInfo">set</button> -->

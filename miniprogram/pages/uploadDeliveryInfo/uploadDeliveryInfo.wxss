@@ -1,0 +1,230 @@
+/* pages/uploadDeliveryInfo/uploadDeliveryInfo.wxss */
+.container {
+  min-height: 100%;
+  /* align-items: stretch; */
+  background: #f8f8f8;
+  overflow-x: hidden;
+  padding: 30rpx;
+}
+
+.cropper-buttons {
+  height: 150rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.edit-btn {
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  color: rgb(0, 0, 0);
+  /* background: linear-gradient(to right, #ff3456, #ff347d); */
+  height: 40rpx;
+  width: auto;
+  line-height: 40rpx;
+  border: 1rpx solid #000000;
+  margin-right: 24rpx;
+  box-shadow: 2rpx 8rpx 18rpx #f1f1f1;
+}
+
+.edit-container {
+  background: #fff;
+  width: 100%;
+  margin-bottom: 30rpx;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 8rpx 18rpx #f1f1f1;
+}
+
+.a-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.a-item .note {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  width: 100rpx;
+}
+
+.a-item .input-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30rpx 30rpx 30rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.a-item:last-child .input-wrap {
+  border-bottom: none;
+}
+
+.a-item .input-wrap .a-input {
+  font-size: 28rpx;
+  width: 100%;
+}
+
+.a-item .input-wrap .arrow {
+  width: 10rpx;
+  height: 10rpx;
+  border-top: 4rpx solid #aaa;
+  border-right: 4rpx solid #aaa;
+  transform: rotate(45deg);
+}
+
+.a-input {
+  font-size: 28rpx;
+  width: 100%;
+  height: 60rpx;
+}
+
+.strategy {
+  font-size: 30rpx;
+  color: black;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.gray {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 50rpx;
+  font-size: 28rpx;
+  color: gray;
+}
+
+.scroll-view{
+  display: flex;
+  width: 100%;
+  height: 250rpx;
+  white-space: nowrap;
+  /* padding-top: 20rpx; */
+  border-top: 1rpx solid #f1f1f1;
+} 
+
+.userinfo {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5rpx;
+  box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  flex-direction: column;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 8rpx 18rpx #f1f1f1;
+}
+
+.head-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx;
+  padding: 10rpx 0;
+  height: auto;
+  /* border-bottom: 1rpx solid #f1f1f1; */
+}
+
+.head-wrap .no-login-avatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.head-wrap .no-login-avatar .no-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.head-wrap .no-login-avatar .no-avatar .avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 90rpx;
+}
+
+.head-wrap .head-l {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.head-wrap .head-l .l {
+  width: 110rpx;
+  height: 110rpx;
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.head-wrap .head-l .l .crown {
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(45deg);
+}
+
+.head-wrap .head-l .l .crown .icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.head-wrap .head-l .r {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.head-wrap .head-l .r .name {
+  font-size: 29rpx;
+  color: #192841;
+  font-weight: 500;
+  margin-right: 10rpx;
+}
+
+.head-wrap .head-r .choose {
+  width: 100rpx;
+  height: 60rpx;
+  background-color: rgb(82, 165, 124);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: rgb(255, 255, 255);
+  border-radius: 8rpx;
+}
+
+.btn-wrap {
+  width: 100%;
+  padding: 24rpx 0;
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+  box-sizing: border-box;
+}
+
+.btn-wrap .btn {
+  font-size: 28rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  width: 100%;
+  color: #fff;
+  background: #bbb;
+  box-shadow: 0rpx 10rpx 20rpx #ccc;
+}
+
+.btn-wrap .btn.active {
+  background: linear-gradient(to right, #ff3456, #ff347d);
+  box-shadow: 0rpx 10rpx 20rpx #f1f1f1;
+  color: #fff;
+}

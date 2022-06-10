@@ -1,0 +1,61 @@
+<!--pages/stock/stock.wxml-->
+<view class="container">
+
+  <view class="search-header">
+      <view class="input-box">
+          <image class="icon-search" src="/img/search.png"></image>
+          <input name="input" class="keyword" focus="true" placeholder="搜索关键词" value="{{keyword}}" confirm-type="search" bindinput="setKeyWord" bindconfirm="searchKey" confirm-type="search"/>
+          <image src="/img/search_dele.png" class="del" wx:if="{{keyword}}" bindtap="clearKeyword"></image>
+      </view>
+      <view class="right" bindtap="cancelSearch">取消</view>
+  </view>
+
+  <view class="search-result-empty" wx:if="{{!goodsdata.length && keyword}}">
+      <image class="icon" src="/img/no_search.png"></image>
+      <text class="text">没找到，换个关键字试试</text>
+  </view>
+
+  <view class='list-wrap clearfix' wx:else>
+      <view class="goods-box {{(index+1)%2 == 0?'no-margin':''}}" wx:for="{{goodsdata}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+          <navigator hover-class='none' class='navi-url' url="/pages/merchandiseDetail/merchandiseDetail?mid={{item.mid}}&uid={{uid}}">
+              <view class="box">
+                  <image src="{{item.img[0]}}" class="image">
+                      <!-- <view wx:if="{{item.is_new == 1}}" class='new-tag'>新品</view> -->
+                  </image>
+                  <!-- <block wx:if="{{item.goods_number <= 0}}">
+                      <view class='no-goods-mask'></view>
+                      <view class='sold-img'>
+                          <image class='soldout' src='/images/icon/sold-out.png'></image>
+                      </view>
+                  </block> -->
+              </view>
+              <view class="goods-info {{item.goods_number <= 0?'fast-out-status':''}}">
+                  <view class="goods-title">{{item.title}}</view>
+                  <view class="goods-intro">{{item.titleTwo}}</view>
+                  <view class='price-container'>
+                      <view class='l'>
+                          <view class='h'>￥{{item.price}}</view>
+                      </view>
+                  </view>
+              </view>
+          </navigator>
+      </view>
+  </view>
+
+</view>
+
+<!-- <view class="demo-box">
+  <block wx:for="{{goodsdata}}" wx:for-item="item">
+  <view class="goods-box">
+    <view hover-class="myhover" bindtap="btntodetail" data-id="{{item.mid}}">
+      <image class="goods-pic" src="{{item.img[0]}}" style="width: 120px; height: 120px" bindtap="detail" data-detail="{{item.detail}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="goods-titleTwo">{{item.titleTwo}}</view>
+    </view>
+    <view class="row" hover-class="buttonhover">
+        <view class="goods-price">￥{{item.price}}</view>
+        <text class="goods-btn" bindtap="addmer" data-price="{{item.price}}" data-id="{{item.mid}}">+</text>
+    </view>
+  </view>
+  </block>
+</view> -->

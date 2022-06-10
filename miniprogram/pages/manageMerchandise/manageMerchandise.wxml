@@ -1,0 +1,28 @@
+<!--pages/manageMerchandise/manageMerchandise.wxml-->
+<view>
+  <view class="all-mer">
+    <view wx:for="{{mer_info}}" wx:for-item="item">
+      <view class="merinfo">
+        <view class='head-wrap'>
+          <view class="head-l">
+            <view class='l'>
+              <image class='avatar' src="{{item.img}}"></image>
+            </view>
+            <view class='r'>
+              <view class='t'>
+                <view class='name'>{{item.title}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="head-r">
+            <view class="modify" bindtap="modifyMer" data-id="{{item.mid}}">修改</view>
+            <view class="delete" bindtap="deleteMer" data-id="{{item.mid}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-wrap" bindtap="uploadMerchandise">
+    <view class="btn">+新增商品</view>
+  </view>
+</view>

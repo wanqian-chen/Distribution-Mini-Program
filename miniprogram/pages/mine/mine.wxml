@@ -1,0 +1,173 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+	<view class="userinfo">
+		<view class='head-wrap' wx:if="{{!haveLoggedIn}}" bindtap='accountLogIn'>
+			<view class="no-login-avatar">
+					<view class='no-avatar'>
+							<image class='avatar' src="/img/default_avatar.png"></image>
+					</view>
+					<view class='btn-login'>点我登录/注册</view>
+			</view>
+		</view>
+		<view class='head-wrap' wx:else bindtap='myInfoShow'>
+				<view class="head-l">
+						<view class='l'>
+								<image class='avatar' src="{{user_info.avatarUrl}}"></image>
+						</view>
+						<view class='r'>
+								<view class='t'>
+										<view class='name'>{{user_info.nick_name}}</view>
+								</view>
+						</view>
+				</view>
+				<view class="head-r">
+						<view class="arrow"></view>
+				</view>
+		</view>
+	</view>
+
+	<!-- <view class="li-wrap" wx:if="{{!haveLoggedIn}}">
+		<view class="list" bindtap="accountLogIn">
+			<view class="list-l">
+					<view class="icon">
+							<image class="img" src="/img/info.png"></image>
+					</view>
+					<view class="text">账号密码登录</view>
+			</view>
+			<view class="arrow"></view>
+		</view>
+		<view class="list" bindtap="signUp">
+				<view class="list-l">
+						<view class="icon">
+								<image class="img" src="/img/info.png"></image>
+						</view>
+						<view class="text">注册</view>
+				</view>
+				<view class="arrow"></view>
+		</view>
+	</view> -->
+	<view class="li-wrap"wx:if="{{haveLoggedIn}}">
+		<view class="list" bindtap="logOut">
+			<view class="list-l">
+					<view class="icon">
+							<image class="img" src="/img/info.png"></image>
+					</view>
+					<view class="text">登出</view>
+			</view>
+			<view class="arrow"></view>
+		</view>
+	</view>
+
+	<view class="order-container">
+		<view class='header' bindtap='myOrder'>
+		<!-- <view class='header' data-index='0' bindtap='myOrder'> -->
+				<view class='top-title'>
+						<view class='left-line'></view>
+						<view class='text'>我的订单</view>
+				</view>
+				<view class='see-more'>
+						<view class="text">查看全部订单</view>
+						<view class="arrow"></view>
+				</view>
+		</view>
+		<!-- <view class='btn-container'>
+				<view class='icon-wrap' data-index='1' bindtap='toOrderListTap'>
+						<view class='order-icon-wrap'>
+								<image class='order-icon' src='/img/icon_pay_r.png'>
+								</image>
+								<view wx:if="{{status.toPay > 0 }}" class='red-point'>{{status.toPay}}</view>
+						</view>
+						<text class='order-txt'>待付款</text>
+				</view>
+				<view class='icon-wrap' data-index='2' bindtap='toOrderListTap'>
+						<view class='order-icon-wrap'>
+								<image class='order-icon' src='/img/icon_delivery_r.png'>
+								</image>
+								<view wx:if="{{status.toDelivery > 0 }}" class='red-point'>{{status.toDelivery}}</view>
+						</view>
+						<text class='order-txt'>待发货</text>
+				</view>
+				<view class='icon-wrap' data-index='3' bindtap='toOrderListTap'>
+						<view class='order-icon-wrap'>
+								<image class='order-icon' src='/img/icon_onroad_r.png'>
+								</image>
+								<view wx:if="{{status.toReceive > 0 }}" class='red-point'>{{status.toReceive}}</view>
+						</view>
+						<text class='order-txt'>待收货</text>
+				</view>
+		</view> -->
+	</view>
+
+	<view class="li-wrap">
+		<view class="list" bindtap="manageSub">
+				<view class="list-l">
+						<view class="icon">
+								<image class="img" src="/img/icon_sub.png"></image>
+						</view>
+						<view class="text">管理下级</view>
+				</view>
+				<view class="arrow"></view>
+		</view>
+	</view>
+	<view class="li-wrap">
+		<view class="list" bindtap="toShippingAddress">
+			<view class="list-l">
+					<view class="icon">
+							<image class="img" src="/img/icon_footprint.png"></image>
+					</view>
+					<view class="text">收货地址</view>
+			</view>
+			<view class="arrow"></view>
+		</view>
+		<!-- <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
+				<view class="list-l">
+						<view class="icon">
+								<image class="img" src="/images/icon/icon-service-r.png"></image>
+						</view>
+						<view class="text">联系客服</view>
+				</view>
+				<view class="arrow"></view>
+		</button> -->
+		<view class="list" bindtap="toAbout">
+				<view class="list-l">
+						<view class="icon">
+								<image class="img" src="/img/media.png"></image>
+						</view>
+						<view class="text">待定</view>
+				</view>
+				<view class="arrow"></view>
+		</view>
+	</view>
+	<view class="company">
+		<view class="c-wrap" bindtap="getOrderInfo">
+				<view class="text">分销</view>
+				<view class="line"></view>
+		</view>
+		<view class="tip">微信小程序</view>
+	</view>
+</view>
+
+
+<!-- <view wx:if="{{haveLoggedIn}}">
+  <text>已登录。您的user id为：{{uid}}</text>
+  <button bindtap="logOut">登出</button>
+</view>
+<view wx:if="{{!haveLoggedIn}}">
+  <button bindtap="signUp">注册</button>
+  <button bindtap="logIn">直接登录</button>
+  <button bindtap="accountLogIn">账号密码登录</button>
+</view>
+<view id="mine">
+  =====================================
+  <button bindtap="myInfoShow">个人信息</button>
+  <button bindtap="myOrder">我的订单</button>
+  <button bindtap="manageSub">管理下级</button>
+</view>
+<text>\n==========测试区请忽略========\n</text>
+<button bindtap="subOrder">下级订单</button>
+<button >个人账户</button>
+<button bindtap="Test">test</button>
+<button bindtap="userLogin">登录</button>
+<button bindtap="codeTest">codetest</button> -->
+
+

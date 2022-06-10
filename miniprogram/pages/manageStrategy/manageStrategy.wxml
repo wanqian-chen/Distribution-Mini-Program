@@ -1,0 +1,41 @@
+<!--pages/manageStrategy/manageStrategy.wxml-->
+<view>
+  <!-- <view class="notification">
+    <view class="line"></view>
+    <view class="notify-text">点击名称查看详情</view>
+    <view class="line"></view>
+  </view> -->
+  <view class="all-strategy">
+    <view wx:for="{{stra_info}}" wx:for-item="item">
+      <!-- <view wx:if="{{item.total_number>0}}" class="row"> -->
+      <!-- <view class="row">
+          <view class="mytext">
+              <text>----------------------------------------------</text>
+              <text class="mertitle" bindtap="detail" data-id="{{item.sid}}">名称：{{item.name}}\n</text>
+              <text>销售策略：{{item.detail}}\n</text>
+          </view>
+          <button bindtap="modifyStrategy" data-id="{{item.sid}}">修改</button>
+          <button bindtap="deleteStrategy" data-id="{{item.sid}}">删除</button>
+      </view> -->
+
+      <view class="strategyinfo">
+        <view class='head-wrap'>
+          <view class="head-l">
+            <view class='r'>
+              <view class='t'>
+                <view class='name'>名称：{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="head-r">
+            <view class="modify" bindtap="modifyStrategy" data-id="{{item.sid}}">修改</view>
+            <view class="delete" bindtap="deleteStrategy" data-id="{{item.sid}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-wrap" bindtap="uploadStrategy">
+    <view class="btn">+新增销售策略</view>
+  </view>
+</view>

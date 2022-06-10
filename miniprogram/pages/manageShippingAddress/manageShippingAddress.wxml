@@ -1,0 +1,32 @@
+<!--pages/manageShippingAddress/manageShippingAddress.wxml-->
+<view class="container">
+  <view class='has-info' wx:if="{{shipping_address.length > 0}}">
+    <view bindtap="{{type == 0?'goAddressDetail':'selectAddress'}}" class='info-item' data-addressid="{{index}}" wx:for="{{shipping_address}}" wx:key="id">
+      <view class="selected" wx:if="{{type == 1}}">
+        <image wx:if="{{index == now_address_index}}" class="img" src="/img/check_red.png"></image>
+        <image wx:else class="img" src="/img/check_gray.png"></image>
+      </view>
+      <view class="info-wrap">
+        <view class="name">
+            <view class="text">{{item.name}} {{item.phone}}</view>
+            <view class="default" wx:if="{{item.is_default}}">默认</view>
+        </view>
+
+        <view class="addr">
+          <view class="top">{{item.address}}</view>
+          <!-- <view class="text">{{item.full_region}}</view> -->
+        </view>
+      </view>
+      <view class="edit-wrap" data-addressid="{{index}}" catchtap='modifyAddress'>
+        <image class="img" src="/img/edit.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="no-info" wx:else>
+    <image src="/img/position_deny.png" class="img"></image>
+    <view class="text">没有地址信息</view>
+  </view>
+  <view class="btn-wrap" bindtap="addAddress">
+    <view class="btn">新增收货地址</view>
+  </view>
+</view>

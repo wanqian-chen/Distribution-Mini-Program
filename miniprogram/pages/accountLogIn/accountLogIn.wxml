@@ -1,0 +1,30 @@
+<!--pages/accountLogIn/accountLogIn.wxml-->
+
+<view class="form-common">
+    <view class="formc-cnt">
+        <text>账号：</text>
+        <input auto-focus type="text" placeholder="请输入帐号（id）" value="{{user_id}}" bindinput="setUserId"></input>
+    </view>
+    <view class="formc-cnt">
+        <text>密码：</text>
+        <input auto-focus type="text" placeholder="请输入密码" password="{{true}}" value="{{user_password}}" bindinput="setUserPassword"></input>
+    </view>
+    <view class="option">
+        <view class="register" bindtap="signUp">立即注册>></view>
+    </view>
+    <view class="login">
+        <button type="primary" round class="log-btn" hover-class="btnhover" bindtap="logIn">登录</button>
+    </view>
+
+    <view class="notification">
+        <view class="line"></view>
+        <view class="notify-text">您还可以使用以下方式登录</view>
+        <view class="line"></view>
+    </view>
+
+    <view class="icon">
+        <image src="/img/weixin.png" bindtap="directLogIn"></image>
+    </view>
+</view>
+
+

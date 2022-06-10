@@ -1,0 +1,66 @@
+<!--pages/cart/cart.wxml-->
+<!--购物车页面-->
+<view class='container'>
+    <view class="cart-empty-container {{hasCartGoods == 0?'show':''}}">
+        <view class='cart-empty-view'>
+            <image class='cart-empty' src='/img/cart-empty.png'></image>
+        </view>
+        <view class='cart-empty-txt'>车里什么都没有，快去买一点吧</view>
+        <view class="to-index-btn" bindtap="goStock">
+            去逛逛
+        </view>
+    </view>
+
+
+    <view class="goodsList" id="mer" wx:if="{{all_merchandise.length > 0}}">
+        <view wx:for="{{all_strategy}}" wx:for-index='strategy'>
+            <view class='list-top-wrap'>销售类型：{{strategy}}</view>
+            <block wx:for="{{all_merchandise}}" wx:for-item="item" wx:if="{{item.strategy == strategy}}">
+                <view class="a-goods {{item.isTouchMove ? 'touch-move-active' : ''}}">
+                <view class='content' bindtap="detail" data-id="{{item.id}}">
+                    <view class="goods-info">
+                        <view class="goods-url">
+                            <view class="img-box" bindtap="goGoodsDetail" data-id="{{item.id}}">
+                                <image src="{{item.img[0]}}" class="img" />
+                            </view>
+                            <view class="text-box">
+                                <view class="{{item.total_number>0 ?'goods-title':'out-stock-title'}}">{{item.title}}</view>
+                                <view class="goods-price">
+                                    <view class='price-now'>￥{{item.price}}</view>
+                                </view>
+                                <view class="selnum" catchtap="nothing" wx:if="{{item.total_number > 0}}">
+                                    <view catchtap="minmer" data-id="{{item.id}}" data-price="{{item.price}}" class="cut">-</view>
+                                    <input value="{{item.user_number}}" class="number" type="number" data-id="{{item.id}}" onblur="inputNumber"/>
+                                    <view catchtap="addmer" data-id="{{item.id}}" data-price="{{item.price}}" class="add" disabled='{{disabled}}'>+</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                </view>
+                <view class="sub_info" wx:if="{{item.total_number>0}}">
+                    <view class="sub_detail">
+                        <text> 下级共购买：{{item.sub_number}}\n </text>
+                        <text> 共购买：{{item.total_number}}\n </text>
+                    </view>
+                    <!-- <text class="mernum"> 单价：{{item.price}}\n </text> -->
+                    <view class="sub_detail">
+                        <text> 原价: {{item.origin_total_price}}\n</text>
+                        <text> 折后总价: {{item.total_price}}\n</text>
+                        <text> 折后单价: {{item.per_price}}\n</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+    <view class='bottom-all'>
+        <text>总金额：￥{{total_mer_money}}</text>
+        <text>实付款: ￥{{user_money}}</text>
+    </view>
+    <view class="bottom-fixed-box display-between">
+		<view class="to-cancel-btn" bindtap='zero'>清空购物车</view>
+		<view class="to-pay-btn" bindtap='buy'>去下单({{total_mer_num}})</view>
+	</view>
+</view>

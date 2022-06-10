@@ -1,0 +1,30 @@
+<!--pages/manageSubordinate/manageSubordinate.wxml-->
+<view class="container">
+  <view wx:for="{{sub_info}}" wx:for-item="item">
+    <!-- <view class="row">
+        <image class="goodspic" src="{{item.avatar}}" bindtap="detail" data-id="{{item.uid}}"></image>
+        <view class="mytext">
+            <text class="mertitle" bindtap="detail" data-id="{{item.uid}}">{{item.nickName}}</text>
+        </view>
+        <button bindtap="deleteSub" data-id="{{item.uid}}">删除</button>
+    </view> -->
+
+    <view class="userinfo">
+      <view class='head-wrap'>
+        <view class="head-l">
+          <view class='l'>
+            <image class='avatar' src="{{item.avatar}}"></image>
+          </view>
+          <view class='r'>
+            <view class='t'>
+              <view class='name'>{{item.nickName}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="head-r">
+            <view class="delete" bindtap="deleteSub" data-id="{{item.uid}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

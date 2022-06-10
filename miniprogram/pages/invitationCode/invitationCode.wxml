@@ -1,0 +1,18 @@
+<!--pages/invitationCode/invitationCode.wxml-->
+
+<!-- <view>
+  <input auto-focus type="text" placeholder="请输入邀请码" value="{{invitation_code}}" bindinput="verifyCode"></input>
+  <button bindtap="confirmCode">确定</button>
+</view> -->
+
+<view class="form-common">
+    <form bindsubmit="login">
+        <view class="formc-cnt">
+            <text>邀请码：</text>
+            <input auto-focus type="text" placeholder="请输入邀请码" value="{{invitation_code}}" bindinput="verifyCode"></input>
+        </view>
+        <view>
+            <button type="primary" hover-class="btnhover" bindtap="confirmCode">确定</button>
+        </view>
+    </form>
+</view>

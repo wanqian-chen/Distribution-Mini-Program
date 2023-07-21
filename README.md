@@ -150,18 +150,26 @@
     - 产品浏览与关键词搜索
     - 产品添加与管理  
     ![manage_merchandise](imgs/manage_merchandise.jpg)
-    ![add_merchandise](imgs/add_merchandise.jpg)
+    ![add_merchandise](imgs/add_merchandise.jpg)  
 2. 购物车
     - 获利计算
     - 订单的创建及订单关系的生成  
-    ![create_order](imgs/create_order.jpg)
+    ![create_order](imgs/create_order.jpg)  
 3. 用户
-   - 用户登录模块
-   - 用户注册及绑定上下级关系
-   - 地址管理
-   - 订单状态变化
-   - 物流信息识别
-4. 
+   - 用户登录模块  
+    ![login0](imgs/login0.jpg)
+    ![login1](imgs/login1.jpg)  
+   - 用户注册及绑定上下级关系  
+    ![register0](imgs/register0.jpg)
+    ![register1](imgs/register1.jpg)  
+   - 地址管理  
+    ![default_address](imgs/default_address.jpg)  
+   - 订单状态变化  
+    ![order_status0](imgs/order_status0.jpg)
+    ![order_status1](imgs/order_status1.jpg)  
+   - 物流信息识别  
+    ![ocr0](imgs/ocr0.jpg)
+    ![ocr1](imgs/ocr1.jpg)
 
 ## 参考文档
 

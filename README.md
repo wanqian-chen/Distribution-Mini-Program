@@ -106,6 +106,63 @@
 
     ![delivery_info](imgs/delivery_info.jpg)
 
+### 数据库设计
+
+![database_er](imgs/database_er.jpg)
+
+## 产品分销小程序的实现
+
+### 开发环境搭建
+
+本产品分销微信小程序使用微信web开发者工具进行开发，主要使用以下三种文件类型：微信标记语言WXML（WeiXin Mark Language）、微信样式表WXSS（WeiXin Style Sheet）、小程序主体JS（JavaScript）。  
+
+开发小程序需要在微信官方的网页上注册一个用于小程序开发者的帐号，并获取独一无二的AppID。该AppID相当于小程序平台的身份证，可以唯一标识使用者。  
+
+其次，需要开通云开发。首次使用时，系统将为开发者自动创建专属的云环境，开发者也可另外创建一个新的云开发环境。每个云开发环境相互隔离，拥有唯一的环境 ID，包含独立的数据库实例、存储空间、云函数配置等资源；初始创建的环境自动成为默认环境；默认配额下可以创建两个环境。同时微信官方也提供了腾讯云控制台创建的云开发环境。  
+
+拥有AppID并创建云开发环境后，就可以使用云开发环境中的云数据库、云存储和云函数等功能。云数据库可以用来存储信息，其数据以JSON的数据格式进行存储。云存储可以存储文件，如图片、视音频等。云函数是在腾讯云端运行的代码，有些官方提供的特定的函数只能在云函数里运行。
+
+### 前端功能模块
+
+1. 首页
+   1. 滚动条
+   
+    ![index_swiper](imgs/index_swiper.jpg)
+
+   2. 产品浏览
+
+    ![merchandise0](imgs/merchandise0.jpg)
+    ![merchandise1](imgs/merchandise1.jpg)
+
+2. 购物车
+
+![cart_empty](imgs/cart_empty.jpg)
+![cart_notempty](imgs/cart_notempty.jpg)
+
+3. 我的订单
+
+![myorder](imgs/myorder.jpg)
+![myorder_search](imgs/myorder_search.jpg)
+
+### 后端功能模块
+
+1. 首页
+    - 产品浏览与关键词搜索
+    - 产品添加与管理  
+    ![manage_merchandise](imgs/manage_merchandise.jpg)
+    ![add_merchandise](imgs/add_merchandise.jpg)
+2. 购物车
+    - 获利计算
+    - 订单的创建及订单关系的生成  
+    ![create_order](imgs/create_order.jpg)
+3. 用户
+   - 用户登录模块
+   - 用户注册及绑定上下级关系
+   - 地址管理
+   - 订单状态变化
+   - 物流信息识别
+4. 
+
 ## 参考文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
